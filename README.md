@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Krishi-Kalyan
 
 ## Tech Stack-
@@ -75,6 +74,3 @@ use db <db name>
 show collections
 <db name> .find()
 ```
-=======
-# Krishi-Kalyan
->>>>>>> b882538 (Initial commit)
