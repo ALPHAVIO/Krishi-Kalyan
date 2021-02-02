@@ -1,17 +1,16 @@
 const express=require('express')
-const bodyParser=require('body-parser')
 const router=new express.Router()
-router.use(bodyParser.urlencoded({extended:true}))/*This is used to parse body of request */
-router.use(express.json())/*This is used to automatically parse json data */
-
+const auth=require('../middleware/authentication')
 const User=require('../model/farmer')/*Loading user model */
 router.get('/update',async(req,res)=>{
     res.render('update')
 })
-router.post('/update',async(req,res)=>{
+router.post('/update',auth,async(req,res)=>{
+   
+   // console.log(req.user)
     const updates=Object.keys(req.body)
-    console.log(req.body)
-    console.log(updates)
+   // console.log(req.body)
+    //console.log(updates)
     var allowedUpdate=[]
     updates.forEach((update)=>{
       
@@ -20,15 +19,15 @@ router.post('/update',async(req,res)=>{
           allowedUpdate.push(update)
         }
     })
-        console.log(allowedUpdate)
-        const username=req.body.username
+
+     //   console.log(allowedUpdate)
         try{
-            const kishan=await User.findOne({username})
+         
        
-            allowedUpdate.forEach((update)=>{
-                kishan[update]=req.body[update]
+             allowedUpdate.forEach((update)=>{
+                req.user[update]=req.body[update]
             })
-            await kishan.save()
+            await req.user.save()
             res.render('kishan')
         }
         catch(e)
