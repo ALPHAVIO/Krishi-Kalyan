@@ -3,7 +3,7 @@ const jwt=require('jsonwebtoken')
 const User = require('../model/farmer')
 
 const auth=async (req,res,next)=>{
-    console.log("Authorization is going on")
+   // console.log("Authentication is going on")
     try{
         //console.log(req.cookies)
         const token=req.cookies.jwt
@@ -16,7 +16,8 @@ const auth=async (req,res,next)=>{
          throw new Error('No user found')
          else{
          
-            console.log(user)
+            //console.log(user)
+            req.token=token
              req.user=user
              next()
          }
