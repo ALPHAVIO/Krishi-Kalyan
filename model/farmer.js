@@ -1,6 +1,7 @@
 const mongoose=require('mongoose')
 const validator=require('validator')
 const bcrypt=require('bcryptjs')
+const jwt=require('jsonwebtoken')
 const UserSchema=mongoose.Schema({
     username:{
         type:String,
@@ -35,13 +36,13 @@ const UserSchema=mongoose.Schema({
       required:true,
       trim:true
     },
-    middlename:{
-        type:String,
-        trim:true
-
-    },
     lastname:{
         type:String,
+        required:true,
+        trim:true
+    },
+    contact:{
+        type:Number,
         required:true,
         trim:true
     },
@@ -49,9 +50,20 @@ const UserSchema=mongoose.Schema({
         type:String,
         required:true,
         trim:true
+    },
+    Tokens:[{
+        token:{
+           type:String,
+           required:true
+        }
+    }
+    ],
+    avatar:{
+        type:Buffer
     }
 
 },{timestamps:true})
+
 UserSchema.statics.findByCredential=async(login)=>{
   const username=login.username
   const password=login.password
@@ -71,15 +83,21 @@ UserSchema.statics.findByCredential=async(login)=>{
   
 }
 
+UserSchema.methods.generateAuthToken=async function ()
+{
+    const user=this
+   const token=jwt.sign({_id:user._id.toString()},'thisismyapp')
+   user.Tokens=user.Tokens.concat({token})
+   await user.save()
+   return token
+}
+
 UserSchema.pre('save',async function(next){
    const farmer=this
-   console.log(farmer)
    if(farmer.isModified('password'))
    {
     farmer.password=await bcrypt.hash(farmer.password,8)
    }
-   
-
      next()
 })
 
