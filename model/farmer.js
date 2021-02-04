@@ -46,6 +46,12 @@ const UserSchema=mongoose.Schema({
         required:true,
         trim:true
     },
+    userType:{
+         type:String,
+         required:true,
+         trim:true
+    }
+    ,
     location:{
         type:String,
         required:true,

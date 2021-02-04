@@ -14,8 +14,10 @@ router.post('/register',async(req,res)=>{
        res.cookie('jwt', token)
      //  console.log(`this is awesome ${req.cookies.jwt}`)
 
-     
+     if(user.userType=='Farmer')
        res.redirect('/kishan')
+       else
+       res.redirect('/customer')
      }
      catch(e){
          console.log(e)
