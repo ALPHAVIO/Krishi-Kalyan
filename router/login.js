@@ -16,7 +16,10 @@ router.post('/login',async(req,res)=>{
       
           res.cookie('jwt',token)/**Saving authentication into cookies */
          //console.log(req.cookies.jwt)
-         res.redirect('/kishan')
+         if(user.userType=='Farmer')
+       res.redirect('/kishan')
+       else
+       res.redirect('/customer')
     }
     catch(e)
     {
