@@ -1,17 +1,20 @@
-const express=require('express')
-const bodyParser=require('body-parser')
-const router=new express.Router()
-router.use(bodyParser.urlencoded({extended:true}))/*This is used to parse body of request */
-router.use(express.json())/*This is used to automatically parse json data */
+const express = require('express')
+const bodyParser = require('body-parser')
+const router = new express.Router()
+router.use(bodyParser.urlencoded({
+    extended: true
+})) /*This is used to parse body of request */
+router.use(express.json()) /*This is used to automatically parse json data */
 
-const User=require('../model/farmer')/*Loading user model */
+const User = require('model/farmer') /*Loading user model */
 
 
-router.get('',async(req,res)=>{
+router.get('', async (req, res) => {
     res.render('home')
 })
-router.get('/kishan',async(req,res)=>{
+router.get('/kishan', async (req, res) => {
     res.render('kishan')
+    
 })
 
 
@@ -87,4 +90,4 @@ router.post('/update',async(req,res)=>{
         }
 })*/
 
-module.exports=router
+module.exports = router
