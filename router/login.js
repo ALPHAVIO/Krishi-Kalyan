@@ -1,10 +1,5 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const router = new express.Router()
-router.use(bodyParser.urlencoded({
-    extended: true
-})) /*This is used to parse body of request */
-router.use(express.json()) /*This is used to automatically parse json data */
 
 const User = require('model/farmer') /*Loading user model */
 
@@ -15,12 +10,18 @@ router.get('/login', async (req, res) => {
     })
 })
 router.post('/login', async (req, res) => {
-    //console.log(req.body)
+
     const email = req.body.username
     try {
-        const user = await User.findByCredential(req.body)
-        console.log(user)
-        res.render('kishan')
+        const user = await User.findByCredential(req.body) /**Try to find out whether user exist or not */
+        const token = await user.generateAuthToken() /**Generate authentication token */
+
+        res.cookie('jwt', token) /**Saving authentication into cookies */
+        //console.log(req.cookies.jwt)
+        if (user.userType == 'Farmer')
+            res.redirect('/kishan')
+        else
+            res.redirect('/customer')
     } catch (e) {
         console.log(e)
         message = 'Either Username Or password is wrong'
