@@ -25,6 +25,7 @@
     "db": "file:db",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "middleware": "file:middleware",
     "model": "file:model",
     "mongoose": "^5.11.14",
