@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('partials/head'); -%>
+        <title>Krish Kalyan | Marketplace</title>
+        <link rel="stylesheet" href="/css/products.css">
+    </head>
+    <body>
+        <div class="modal fade" id="productPost" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">New product</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="/products">
+                            <div class="form-group">
+                                <label for="name">Name of the product*</label>
+                                <input required="true" class="form-control" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description of the product*</label>
+                                <input required="true" class="form-control" name="description">
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity">Quantity*</label>
+                                <input required="true" class="form-control" name="quantity">
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category of the product*</label>
+                                <select required="true" class="custom-select" name="category">
+                                    <option selected>Choose an option</option>
+                                    <option value="Cereals">Cereals</option>
+                                    <option value="Pulses">Pulses</option>
+                                    <option value="Fruits">Fruits</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <h1 class="display-4">Welcome to the Marketplace</h1>
+                <button class="btn btn-outline-dark" data-toggle="modal" data-target="#productPost">Add new product</button>
+            </div>
+            <div class="products">
+                <% data.forEach((item, index) => { %>
+                    <div class="card mx-auto mb-5">
+                        <div class="card-body">
+                            <h1><%- item.name -%></h1>
+                            <p><%- item.description -%></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <%- include('partials/scripts'); -%>
+    </body>
+</html>

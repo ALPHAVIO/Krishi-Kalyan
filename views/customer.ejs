@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>Customer</title>
-</head>
-<body>
-    <h1>Welcome Customer</h1>
-    <a class="btn btn-light btn-lg" href="/update" role="button">Update</a>
-    <form  action="/logout" method="POST"> <button type="submit" class="btn btn-light btn-lg">Logout</button></form>
-    <form  action="/logoutall" method="POST"> <button type="submit" class="btn btn-light btn-lg">LogoutAll</button></form>
-    <form  action="/delete" method="POST"> <button type="submit" class="btn btn-light btn-lg">Delete</button></form>
-</body>
+    <head>
+        <%- include('partials/head'); -%>
+        <title>Customer</title>
+    </head>
+    <body>
+        <h1>Welcome Customer</h1>
+        <a class="btn btn-light btn-lg" href="/update" role="button">Update</a>
+        <form action="/logout" method="POST"> <button type="submit" class="btn btn-light btn-lg">Logout</button></form>
+        <form action="/logoutall" method="POST"> <button type="submit" class="btn btn-light btn-lg">LogoutAll</button>
+        </form>
+        <form action="/delete" method="POST"> <button type="submit" class="btn btn-light btn-lg">Delete</button></form>
+        <%- include('partials/scripts'); -%>
+    </body>
 </html>
