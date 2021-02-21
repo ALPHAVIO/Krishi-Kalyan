@@ -36,9 +36,10 @@
                                     <option value="Cereals">Cereals</option>
                                     <option value="Pulses">Pulses</option>
                                     <option value="Fruits">Fruits</option>
+                                    <option value="Vegetables">Vegetables</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-dark">Register</button>
+                            <button type="submit" class="btn btn-dark">Add</button>
                         </form>
                     </div>
                 </div>
@@ -48,6 +49,7 @@
             <div class="jumbotron">
                 <h1 class="display-4">Welcome to the Marketplace</h1>
                 <button class="btn btn-outline-dark" data-toggle="modal" data-target="#productPost">Add new product</button>
+                <button class="btn btn-outline-secondary"  onclick="history.back()">Back</button>
             </div>
             <div class="products">
                 <% data.forEach((item, index) => { %>
