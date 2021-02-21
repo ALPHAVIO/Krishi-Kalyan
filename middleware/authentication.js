@@ -26,7 +26,7 @@ const auth = async (req, res, next) => {
     } catch (e) {
         console.log(e)
         message = 'Please do authentication'
-        res.render('home', {
+        res.render('login', {
             message: message
         })
     }

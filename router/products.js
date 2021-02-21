@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const auth = require('middleware/authentication')
 const router = new express.Router()
 router.use(bodyParser.urlencoded({
 	extended: true
@@ -19,7 +20,7 @@ router.get('/products', async (req, res) => {
     res.render('products', {data: data})
 })
 
-router.post('/products', async (req, res) => {
+router.post('/products',auth, async (req, res) => {
     const product = new Product(req.body)
     try {
         await product.save()
