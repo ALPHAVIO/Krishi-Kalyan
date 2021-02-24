@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const User = require('../model/farmer')
+const User = require('model/farmer')
 
 const auth = async (req, res, next) => {
     // console.log("Authentication is going on")
