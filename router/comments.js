@@ -11,10 +11,11 @@ const Comment = require('model/comment')
 const Product = require('model/product')
 
 router.get('/comments/:id', async (req, res) => {
+    const productId = req.params.id
     let data
     try {
-        const comments = await Comment.find()
-        data = comments
+        const product = await Product.findOne({_id: productId})
+        data = product.comments
     } catch (error) {
         data = error
     }
@@ -22,18 +23,17 @@ router.get('/comments/:id', async (req, res) => {
 })
 
 router.post('/comments/:id',auth, async (req, res) => {
+    const productId = req.params.id
     const comment = new Comment(req.body)
-    // console.log(res)
     try {
         await comment.save()
-        const product = new Product()
-        // product.update()
-        //     .then((res) => callback(null, res))
-        //     .catch((err) => new Error(JSON.stringify(err)));
+        const product = await Product.findOne({_id: productId})
+        product.comments.push(comment)
+        await product.save()
     } catch (error) {
         console.log(error)
     }
-    res.redirect('/comments')
+    res.redirect(req._parsedUrl.pathname)
 })
 
 module.exports = router

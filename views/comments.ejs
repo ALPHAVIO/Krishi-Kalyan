@@ -35,11 +35,11 @@
             $('#submit').on('click', (e) => {
                 e.preventDefault()
                 $.ajax({
-                    url: '/comments',
+                    url: window.location.pathname,
                     method: 'POST',
                     data: {body: $('#commentForm input').val()}
                 }).done((response) => {
-                    console.log(response)
+                    window.location.reload()
                 })
             })
         </script>
