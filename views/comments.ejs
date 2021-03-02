@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('partials/head'); -%>
+        <title>Krish Kalyan | Marketplace</title>
+        <link rel="stylesheet" href="/css/products.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <h1><%- data.name -%></h1>
+                <p><%- data.description -%></p>
+                <p><b>Quantity</b>: <%- data.quantity -%></p>
+                <span class="badge badge-dark"><%- data.category -%></span>
+                <p class="text-muted pt-3"><%- data.createdAt -%></p>
+                <button class="btn btn-outline-secondary"  onclick="history.back()">Back</button>
+            </div>
+            <h3 class="p-3">Comments</h3>
+            <div class="comments">
+                <% data.comments.forEach((item, index) => { %>
+                    <div class="card mx-auto mb-5">
+                        <div class="card-body">
+                            <p><%- item.body -%></p>
+                            <small class="text-muted"><%- item.updatedAt -%></small>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+            <form id="commentForm">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Post a comment">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" id="submit" type="submit"><i class="fa fa-send"></i> Post</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <%- include('partials/scripts'); -%>
+        <script>
+            $('#submit').on('click', (e) => {
+                e.preventDefault()
+                $.ajax({
+                    url: window.location.pathname,
+                    method: 'POST',
+                    data: {body: $('#commentForm input').val()}
+                }).done((response) => {
+                    window.location.reload()
+                })
+            })
+        </script>
+    </body>
+</html>
