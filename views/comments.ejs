@@ -8,11 +8,16 @@
     <body>
         <div class="container-fluid">
             <div class="jumbotron">
-                <h1 class="display-4">Comments</h1>
+                <h1><%- data.name -%></h1>
+                <p><%- data.description -%></p>
+                <p><b>Quantity</b>: <%- data.quantity -%></p>
+                <span class="badge badge-dark"><%- data.category -%></span>
+                <p class="text-muted pt-3"><%- data.createdAt -%></p>
                 <button class="btn btn-outline-secondary"  onclick="history.back()">Back</button>
             </div>
+            <h3 class="p-3">Comments</h3>
             <div class="comments">
-                <% data.forEach((item, index) => { %>
+                <% data.comments.forEach((item, index) => { %>
                     <div class="card mx-auto mb-5">
                         <div class="card-body">
                             <p><%- item.body -%></p>
