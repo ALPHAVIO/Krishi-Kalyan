@@ -15,6 +15,8 @@ router.get('/comments/:id', async (req, res) => {
     let data
     try {
         const product = await Product.findOne({_id: productId})
+        const comments = await Comment.find({productId: productId})
+        product.comments = comments
         data = product
     } catch (error) {
         data = error
@@ -23,22 +25,26 @@ router.get('/comments/:id', async (req, res) => {
 })
 
 router.post('/comments/:id',auth, async (req, res) => {
-    if (req.user) {
-        const productId = req.params.id
-        const comment = new Comment(req.body)
-        comment.author = req.user
-        try {
-            await comment.save()
-            const product = await Product.findOne({_id: productId})
-            product.comments.push(comment)
-            await product.save()
-        } catch (error) {
-            console.log(error)
-        }
-        res.redirect(req._parsedUrl.pathname)
-    } else {
-        res.redirect('register')
+    const productId = req.params.id
+    const author = req.user
+    const commentData = {
+        productId: productId,
+        auth: {
+            _id: author._id,
+            name: author.firstname + ' ' + author.lastname,
+            contact: author.contact,
+            userType: author.userType,
+            email: author.username
+        }, 
+        ...req.body
     }
+    const comment = new Comment(commentData)
+    try {
+        await comment.save()
+    } catch (error) {
+        console.log(error)
+    }
+    res.redirect(req._parsedUrl.pathname)
 })
 
 module.exports = router

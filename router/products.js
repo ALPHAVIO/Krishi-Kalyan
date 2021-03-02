@@ -21,7 +21,16 @@ router.get('/products', async (req, res) => {
 })
 
 router.post('/products',auth, async (req, res) => {
-    const product = new Product(req.body)
+    const author = req.user
+    const productData = {
+        auth: {
+            name: author.firstname + ' ' + author.lastname,
+            email: author.username,
+            contact: author.contact,
+        },
+        ...req.body
+    }
+    const product = new Product(productData)
     try {
         await product.save()
     } catch (error) {
