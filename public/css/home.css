@@ -1,1 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");h1,h2,h3,h4,h5,h6{font-family:"Hammersmith One"}*{font-weight:300;font-family:"Open Sans"}body{background-color:#333;color:#ddd}
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400&display=swap");
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Source Sans Pro";
+}
+
+* {
+  font-weight: 300;
+  font-family: "Open Sans";
+}
+
+.btn {
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.btn-custom {
+  border-width: 0;
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+  color: #fff !important;
+  background-color: #14682f;
+}
+
+.btn-custom:focus {
+  box-shadow: none;
+}
+
+.btn-custom.shadow-left {
+  box-shadow: -4px 4px 0px 0px rgba(20, 104, 47, 0.5), 4px -4px 0px 0px rgba(20, 104, 47, 0.25);
+  transition: .2s ease box-shadow;
+}
+
+.btn-custom.shadow-left:hover {
+  box-shadow: none;
+}
+
+body {
+  background-color: #eee;
+  color: #333;
+}
+
+.display-4 {
+  color: #14682f;
+  font-weight: 500;
+}
+
+.img-fluid {
+  border-radius: 50px;
+  box-shadow: 2px 2px 20px #999;
+}

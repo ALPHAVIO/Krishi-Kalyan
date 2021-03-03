@@ -56,8 +56,8 @@
                     <div class="card mx-auto mb-5">
                         <div class="card-body">
                             <h1><%- item.name -%></h1>
-                            <small class="text-muted"><%- item.updatedAt -%></small>
-                            <p><%- item.description -%></p>
+                            <small class="text-muted"><%- helper.parseTime(item.updatedAt) -%></small>
+                            <p><%- helper.reduceString(item.description, 50) -%></p>
                             <a href='/comments/<%- item._id -%>' class="btn btn-outline-dark stretched-link">Comment</a>
                             <small class="text-muted"><%- item.comments.length -%> comments</small>
                         </div>

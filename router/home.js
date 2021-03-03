@@ -5,7 +5,7 @@ const User = require('model/farmer') /*Loading user model */
 
 
 router.get('/', async (req, res) => {
-    res.render('home')
+    res.render('home', {data: null})
 })
 
 router.get('/home', auth, async (req, res) => {

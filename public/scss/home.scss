@@ -1,6 +1,18 @@
 @import './common';
 
 body {
-    background-color: #333;
-    color: #ddd;
+    background-color: $secondary-color;
+    color: $text-color;
+}
+
+.display-4 {
+    color: $primary-color;
+    font: {
+        weight: 500;
+    }
+}
+
+.img-fluid {
+    border-radius: 50px;
+    box-shadow: 2px 2px 20px #999;
 }
