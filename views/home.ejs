@@ -2,19 +2,16 @@
 <html lang="en">
     <head>
         <%- include('partials/head'); -%>
-        <title>Krish Kalyan</title>
+        <title>Krishi Kalyan</title>
         <link rel="stylesheet" href="/css/home.css">
     </head>
     <body>
         <div class="container">
-            <h1>Welcome</h1>
+            <h1>Welcome to Krishi Kalyan</h1>
+            <p>An initiative to help promote independent trading for farmers.</p>
             <a class="btn btn-light btn-lg" href="/register" role="button">Register</a>
             <a class="btn btn-light btn-lg" href="/login" role="button">Login</a>
             <a class="btn btn-light btn-lg" href="/products" role="button">Marketplace</a>
-            <form  action="/start" method="POST"> <button type="submit" class="btn btn-light btn-lg">Start</button></form>
-            <% if (message) { %>
-                <label style="color: red;"><%= message %></label> 
-                <% } %>
         </div>
         <%- include('partials/scripts'); -%>
     </body>
