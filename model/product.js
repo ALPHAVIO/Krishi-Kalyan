@@ -20,11 +20,12 @@ const ProductSchema = mongoose.Schema({
         required: true,
     },
     comments: [
-        // {
-        //     type: mongoose.Schema.Types.ObjectId,
-        //     ref: "Comment"
-        // }
-    ]
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+    ],
+    auth: {}
 }, {
     timestamps: true
 })

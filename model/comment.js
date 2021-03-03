@@ -11,8 +11,10 @@ const CommentSchema = mongoose.Schema({
         trim: true,
     },
     auth: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+        // _id: {
+        //     type: mongoose.Schema.Types.ObjectId,
+        //     ref: "User"
+        // }
     }
 }, {
     timestamps: true
