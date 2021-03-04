@@ -2,6 +2,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const auth = require('middleware/authentication')
 const router = new express.Router()
+const Helper = require('public/js/helper')
+const helper = new Helper()
+
 router.use(bodyParser.urlencoded({
 	extended: true
 }))
@@ -17,7 +20,7 @@ router.get('/products', async (req, res) => {
     } catch (error) {
         data = error
     }
-    res.render('products', {data: data})
+    res.render('products', {data: data, helper: helper})
 })
 
 router.post('/products',auth, async (req, res) => {

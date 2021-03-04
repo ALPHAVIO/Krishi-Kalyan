@@ -4,19 +4,25 @@ const auth = require('middleware/authentication')
 const User = require('model/farmer') /*Loading user model */
 
 
-router.get('', async (req, res) => {
-    var message = ''
-    res.render('home', {
-        message
-    })
+router.get('/', async (req, res) => {
+    res.render('home', {data: null})
 })
 
-router.post('/start', auth, (req, res) => {
-    // console.log(req.user)
-    if (req.user.userType == 'Farmer')
-        res.redirect('/kishan')
-    else
-        res.redirect('/customer')
+router.get('/home', auth, async (req, res) => {
+    const user = req.user
+    const data = {
+        message: '',
+        user: {
+            _id: user._id,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.username,
+            userType: user.userType,
+            address: user.location,
 
+        }
+    }
+    res.render('home', {data: data})
 })
+
 module.exports = router
