@@ -7,7 +7,7 @@ mongoose.connect(process.env.URL, {
     useUnifiedTopology: true
 }, (error, client) => {
     if (error)
-        return console.log('unable to connect through mongoose')
+        return console.log('unable to connect through mongoose: ', error)
 
     console.log('connected to mongoose')
 });

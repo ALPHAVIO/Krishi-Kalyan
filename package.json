@@ -17,6 +17,9 @@
   "bugs": {
     "url": "https://github.com/Pranav016/Krishi-Kalyan/issues"
   },
+  "engines": {
+    "node": "14.15.1"
+  },
   "homepage": "https://github.com/Pranav016/Krishi-Kalyan#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
