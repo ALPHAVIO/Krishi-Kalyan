@@ -22,7 +22,7 @@ router.get('/home', auth, async (req, res) => {
 
         }
     }
-    res.render('home', {data: data})
+    res.render('dashboard', {data: data})
 })
 
 module.exports = router

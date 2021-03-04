@@ -12,7 +12,7 @@ router.use(express.json())
 
 const Product = require('model/product')
 
-router.get('/products', async (req, res) => {
+router.get('/marketplace', async (req, res) => {
     let data
     try {
         const products = await Product.find()
@@ -20,10 +20,10 @@ router.get('/products', async (req, res) => {
     } catch (error) {
         data = error
     }
-    res.render('products', {data: data, helper: helper})
+    res.render('marketplace', {data: data, helper: helper})
 })
 
-router.post('/products',auth, async (req, res) => {
+router.post('/marketplace',auth, async (req, res) => {
     const author = req.user
     const productData = {
         auth: {
@@ -39,7 +39,7 @@ router.post('/products',auth, async (req, res) => {
     } catch (error) {
         console.log(error)
     }
-    res.redirect('/products')
+    res.redirect('/marketplace')
 })
 
 module.exports = router
