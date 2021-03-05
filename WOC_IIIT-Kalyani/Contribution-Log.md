@@ -1,4 +1,17 @@
 # Contributing Log-
+1. Name- Vishvajeet<br>
+   work-
+   * Inclusion of Update user information feature inside setting option
+   * Inclusion of signout from all account login  feature inside setting option
+   * Inclusion of Delete account feature inside setting option
+   <br>
+   Pull request Link -https://github.com/ALPHAVIO/Krishi-Kalyan/pull/26
+
+1. Name- Vishvajeet <br>
+    work-
+    * Bug fix to Sign UP 
+    * Bug fix to  Sign Out
+    Pull request Link -https://github.com/ALPHAVIO/Krishi-Kalyan/pull/25
 
 1.  Name- Yuvraj<br/>
     Work-
@@ -55,6 +68,7 @@
     * Develop Login and Sign up system using JWT and frontend using html and EJS.
     * Encrypted info before storing using Bcrypt js.
     * Develop database schema to store user data.
+    * Develop option of  update user information
     <br/>
     Pull request Link - https://github.com/ALPHAVIO/Krishi-Kalyan/pull/3
     <br/>
