@@ -3,7 +3,7 @@ const router = new express.Router()
 const auth = require('middleware/authentication')
 const User = require('model/farmer')
 
-router.post('/logout', auth, async (req, res) => {
+router.get('/logout', auth, async (req, res) => {
     // console.log(req.user)
     try {
         req.user.Tokens = req.user.Tokens.filter((token) => {

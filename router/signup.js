@@ -13,11 +13,12 @@ router.post('/register', async (req, res) => {
 		const token = await user.generateAuthToken()
 		res.cookie('jwt', token)
 		//  console.log(`this is awesome ${req.cookies.jwt}`)
+        res.redirect('/home')
+		// if (user.userType == 'Farmer')
+		// 	res.redirect('/kishan')
+		// else
+		// 	res.redirect('/customer')
 
-		if (user.userType == 'Farmer')
-			res.redirect('/kishan')
-		else
-			res.redirect('/customer')
 	} catch (e) {
 		console.log(e)
 		res.redirect('/register')
