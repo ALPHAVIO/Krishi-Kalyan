@@ -3,7 +3,7 @@ const router = new express.Router()
 const auth = require('middleware/authentication')
 const User = require('model/farmer')
 
-router.post('/logout', auth, async (req, res) => {
+router.get('/logout', auth, async (req, res) => {
     // console.log(req.user)
     try {
         req.user.Tokens = req.user.Tokens.filter((token) => {
@@ -19,7 +19,7 @@ router.post('/logout', auth, async (req, res) => {
     }
 
 })
-router.post('/logoutall', auth, async (req, res) => {
+router.get('/logoutall', auth, async (req, res) => {
     //  console.log(req.user)
     try {
         req.user.Tokens = []
@@ -32,7 +32,7 @@ router.post('/logoutall', auth, async (req, res) => {
         res.status(500).send()
     }
 })
-router.post('/delete', auth, async (req, res) => {
+router.get('/delete', auth, async (req, res) => {
     try {
         await req.user.remove()
         res.redirect('/')

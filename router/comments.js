@@ -26,7 +26,7 @@ router.get('/comments/:id', async (req, res) => {
 
 router.post('/comments/:id',auth, async (req, res) => {
     const productId = req.params.id
-    const author = req.user
+    const author = req.user 
     const commentData = {
         productId: productId,
         auth: {
@@ -35,7 +35,7 @@ router.post('/comments/:id',auth, async (req, res) => {
             contact: author.contact,
             userType: author.userType,
             email: author.username
-        }, 
+        },     
         ...req.body
     }
     const comment = new Comment(commentData)
