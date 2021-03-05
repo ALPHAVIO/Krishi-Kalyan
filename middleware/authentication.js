@@ -4,7 +4,6 @@ const User = require('model/farmer')
 const auth = async (req, res, next) => {
     try {
         const token = req.cookies.jwt
-        // const decode_token = jwt.verify(token, 'thisismyapp')
         const decode_token = jwt.verify(token, process.env.SECRET_KEY)
 
         const user = await User.findOne({
