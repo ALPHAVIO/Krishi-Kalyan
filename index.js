@@ -26,8 +26,9 @@ app.use(updateRouter)
 app.use(marketplaceRouter)
 app.use(commentRouter)
 app.use(express.static(__dirname + '/public'));
-
-//setting port
+app.get('*',(req,res)=>{
+    res.send('404')
+})
 let port = process.env.PORT
 if (port == null || port == ""){
     port = 3000;

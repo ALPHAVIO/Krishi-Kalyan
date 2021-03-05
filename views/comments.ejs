@@ -42,9 +42,9 @@
             </div>
         </div>
         <%- include('partials/scripts'); -%>
-        <script>
+    <script>
             $('#submit').on('click', (e) => {
-                e.preventDefault()
+              //  e.preventDefault()
                 $.ajax({
                     url: window.location.pathname,
                     method: 'POST',
