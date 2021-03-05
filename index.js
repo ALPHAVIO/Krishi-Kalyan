@@ -26,20 +26,9 @@ app.use(updateRouter)
 app.use(marketplaceRouter)
 app.use(commentRouter)
 app.use(express.static(__dirname + '/public'));
-<<<<<<< HEAD
 app.get('*',(req,res)=>{
     res.send('404')
 })
 app.listen('3000', () => {
     console.log('Server running at port 3000')
-=======
-
-//setting port
-let port = process.env.PORT
-if (port == null || port == ""){
-    port = 3000;
-}
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`)
->>>>>>> ac95e283622e561bbdbeddf45d1a2ebcbc4b9a1d
 })
