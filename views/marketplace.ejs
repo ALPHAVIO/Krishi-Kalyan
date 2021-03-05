@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="/css/products.css">
     </head>
     <body>
+        <%- include('partials/sidenav'); -%>
         <div class="modal fade" id="productPost" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -16,7 +17,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="/products">
+                        <form method="POST" action="/marketplace">
                             <div class="form-group">
                                 <label for="name">Name of the product*</label>
                                 <input required="true" class="form-control" name="name">
@@ -32,7 +33,7 @@
                             <div class="form-group">
                                 <label for="category">Category of the product*</label>
                                 <select required="true" class="custom-select" name="category">
-                                    <option selected>Choose an option</option>
+                                    <option selected disabled>Choose an option</option>
                                     <option value="Cereals">Cereals</option>
                                     <option value="Pulses">Pulses</option>
                                     <option value="Fruits">Fruits</option>
@@ -46,23 +47,27 @@
             </div>
         </div>
         <div class="container-fluid">
-            <div class="jumbotron">
-                <h1 class="display-4">Welcome to the Marketplace</h1>
-                <button class="btn btn-outline-dark" data-toggle="modal" data-target="#productPost">Add new product</button>
-                <button class="btn btn-outline-secondary"  onclick="history.back()">Back</button>
-            </div>
-            <div class="products">
-                <% data.forEach((item, index) => { %>
-                    <div class="card mx-auto mb-5">
-                        <div class="card-body">
-                            <h1><%- item.name -%></h1>
-                            <small class="text-muted"><%- item.updatedAt -%></small>
-                            <p><%- item.description -%></p>
-                            <a href='/comments/<%- item._id -%>' class="btn btn-outline-dark stretched-link">Comment</a>
-                            <small class="text-muted"><%- item.comments.length -%> comments</small>
-                        </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-7">
+                    <div class="jumbotron">
+                        <h1 class="display-4">Welcome to the Marketplace</h1>
+                        <button class="btn btn-outline-dark" data-toggle="modal" data-target="#productPost">Add new product</button>
                     </div>
-                <% }) %>
+                    <div class="products">
+                        <% data.forEach((item, index) => { %>
+                            <div class="card mx-auto mb-5">
+                                <div class="card-body">
+                                    <h1><%- item.name -%></h1>
+                                    <small class="text-muted"><%- helper.parseTime(item.updatedAt) -%></small>
+                                    <p><%- helper.reduceString(item.description, 50) -%></p>
+                                    <a href='/comments/<%- item._id -%>' class="btn btn-outline-dark stretched-link">Comment</a>
+                                    <small class="text-muted"><%- item.comments.length -%> comments</small>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
             </div>
         </div>
         <%- include('partials/scripts'); -%>

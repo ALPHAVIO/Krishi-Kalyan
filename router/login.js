@@ -10,24 +10,19 @@ router.get('/login', async (req, res) => {
     })
 })
 router.post('/login', async (req, res) => {
-
-    const email = req.body.username
     try {
         const user = await User.findByCredential(req.body) /**Try to find out whether user exist or not */
         const token = await user.generateAuthToken() /**Generate authentication token */
-
         res.cookie('jwt', token) /**Saving authentication into cookies */
-        //console.log(req.cookies.jwt)
-        if (user.userType == 'Farmer')
-            res.redirect('/kishan')
-        else
-            res.redirect('/customer')
+        res.redirect('/home')
+        // if (user.userType == 'Farmer')
+        //     res.redirect('/kishan')
+        // else
+        //     res.redirect('/customer')
     } catch (e) {
         console.log(e)
         message = 'Either Username Or password is wrong'
-        res.render('login', {
-            message: message
-        })
+        res.render('login', {message: message})
     }
 })
 

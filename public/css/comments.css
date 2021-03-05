@@ -45,12 +45,9 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.5rem;
 }
 
-.products .card {
-  width: 50%;
-}
-
-@media only screen and (max-width: 700px) {
-  .products .card {
-    width: 100%;
-  }
+#commentForm {
+  z-index: 999;
+  position: fixed;
+  bottom: 0;
+  width: 40rem;
 }

@@ -1,0 +1,1 @@
+$('.full').css({"min-height": $(window).height(), "max-width": $(window).width()})

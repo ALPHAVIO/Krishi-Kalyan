@@ -12,3 +12,38 @@ h1, h2, h3, h4, h5, h6 {
         family: $secondary-font;
     }
 }
+
+.btn {
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.btn-custom {
+    border: {
+        width: 0;
+        radius: 0;
+    }
+    padding: 0.5rem 1rem;
+    color: #fff !important;
+    background-color: $primary-color;
+    &:focus {
+        box-shadow: none;
+    }
+    &.shadow-left {
+        box-shadow: -4px 4px 0px 0px rgba($color: $primary-color, $alpha: .5),
+        4px -4px 0px 0px rgba($color: $primary-color, $alpha: .25);
+        transition: .2s ease box-shadow;
+        &:hover {
+            box-shadow: none;
+        }
+    }
+}
+
+#sidenav {
+    background-color: #fff;
+    width: 18%;
+    z-index: 9999;
+    a {
+        font-size: 1.5rem;
+    }
+}

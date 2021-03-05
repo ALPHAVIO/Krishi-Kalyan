@@ -3,27 +3,23 @@
     <head>
         <%- include('partials/head'); -%>
         <title>Krish Kalyan | Marketplace</title>
-        <link rel="stylesheet" href="/css/products.css">
+        <link rel="stylesheet" href="/css/comments.css">
     </head>
     <body>
+        <%- include('partials/sidenav'); -%>
         <div class="container-fluid">
-            <div class="jumbotron">
-                <h1><%- data.name -%></h1>
-                <p><%- data.description -%></p>
-                <p><b>Quantity</b>: <%- data.quantity -%></p>
-                <span class="badge badge-dark"><%- data.category -%></span>
-                <p class="text-muted pt-3"><%- data.createdAt -%></p>
-                <button class="btn btn-outline-secondary"  onclick="history.back()">Back</button>
-            </div>
-            <h3 class="p-3">Comments</h3>
-            <div class="comments">
-                <% data.comments.forEach((item, index) => { %>
-                    <div class="card mx-auto mb-5">
-                        <div class="card-body">
-                            <p><%- item.body -%></p>
-                            <small class="text-muted"><%- item.updatedAt -%></small>
-                        </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-7">
+                    <div class="jumbotron">
+                        <h1><%- data.name -%></h1>
+                        <p><%- data.description -%></p>
+                        <p><b>Quantity</b>: <%- data.quantity -%></p>
+                        <span class="badge badge-dark"><%- data.category -%></span>
+                        <p class="text-muted pt-3"><%- data.createdAt -%></p>
+                        <button class="btn btn-outline-secondary"  onclick="history.back()">Back</button>
                     </div>
+<<<<<<< HEAD
                 <% }) %>
             </div>
             <form id="commentForm" method="POST" >
@@ -31,9 +27,29 @@
                     <input type="text" class="form-control" placeholder="Post a comment">
                     <div class="input-group-append">
                         <button class="btn btn-dark" id="submit" type="submit"><i class="fa fa-send"></i> Post</button>
+=======
+                    <h3 class="p-3">Comments</h3>
+                    <div class="comments">
+                        <% data.comments.forEach((item, index) => { %>
+                            <div class="card mx-auto mb-5">
+                                <div class="card-body">
+                                    <p><%- item.body -%></p>
+                                    <small class="text-muted"><%- item.updatedAt -%></small>
+                                </div>
+                            </div>
+                        <% }) %>
+>>>>>>> ac95e283622e561bbdbeddf45d1a2ebcbc4b9a1d
                     </div>
+                    <form id="commentForm">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Post a comment">
+                            <div class="input-group-append">
+                                <button class="btn btn-dark" id="submit" type="submit"><i class="fa fa-send"></i> Post</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
         <%- include('partials/scripts'); -%>
     <script>
