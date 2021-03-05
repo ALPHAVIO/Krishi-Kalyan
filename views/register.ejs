@@ -2,62 +2,68 @@
 <html lang="en">
 	<head>
 		<%- include('partials/head'); -%>
+		<link rel="stylesheet" href="/css/register.css">
 		<title>Register</title>
 	</head>
-
 	<body>
-
-		<div class="container mt-5">
-			<h1>Register</h1>
-
-			<div class="row">
-				<div class="col-sm-8">
-					<div class="card">
-						<div class="card-body">
-
-							<!-- Makes POST request to /register route -->
-							<form action="/register" method="POST">
-
-								<div class="form-group">
-									<label for="email">Email</label>
-									<input required=true type="email" class="form-control" name="username">
-								</div>
-								<div class="form-group">
-									<label for="password">Password</label>
-									<input required=true type="password" minlength="7" class="form-control" name="password">
-								</div>
-								<div class="form-group">
-									<label for="firstname">Firstname</label>
-									<input required=true class="form-control" name="firstname">
-								</div>
-
-								<div class="form-group">
-									<label for="lastname">Lastname</label>
-									<input required=true class="form-control" name="lastname">
-								</div>
-								<div class="form-group">
-									<label for="userType">UserType</label>
-									<select class="form-control" name="userType">
-										<option>Farmer</option>
-										<option>Customer</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<label for="contact">Contact</label>
-									<input pattern=".{10}" required=true class="form-control" name="contact">
-								</div>
-								<div class="form-group">
-									<label for="location">Location</label>
-									<input required=true class="form-control" name="location">
-								</div>
-
-								<button type="submit" class="btn btn-dark">Register</button>
-
-							</form>
-							<label>Already have an account? <a href="/login">Log In</a></label>
-						</div> 
+		<%- include('partials/navbar'); -%>
+		<div class="full">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<h1 class="text-center">Register</h1>
+						<div class="card">
+							<div class="card-body">
+								<form action="/register" method="POST">
+									<div class="form-row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="firstname">Firstname</label>
+												<input required=true class="form-control" name="firstname">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="lastname">Lastname</label>
+												<input required=true class="form-control" name="lastname">
+											</div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="email">Email</label>
+												<input required=true type="email" class="form-control" name="username">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label for="password">Password</label>
+												<input required=true type="password" minlength="7" class="form-control" name="password">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="userType">Occupation</label>
+										<select class="form-control" name="userType">
+											<option value="Farmer">Farmer</option>
+											<option value="Customer">Customer</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="contact">Contact</label>
+										<input pattern=".{10}" required=true class="form-control" name="contact">
+									</div>
+									<div class="form-group">
+										<label for="location">Location</label>
+										<input required=true class="form-control" name="location">
+									</div>
+									<button type="submit" class="btn btn-custom">Register</button>
+								</form>
+								<div class="mt-3">Already have an account? <a href="/login">Log In</a></div>
+							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>

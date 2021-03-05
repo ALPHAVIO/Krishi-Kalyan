@@ -38,3 +38,12 @@ h1, h2, h3, h4, h5, h6 {
         }
     }
 }
+
+#sidenav {
+    background-color: #fff;
+    width: 18%;
+    z-index: 9999;
+    a {
+        font-size: 1.5rem;
+    }
+}
