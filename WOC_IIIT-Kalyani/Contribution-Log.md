@@ -2,6 +2,22 @@
 
 1.  Name- Yuvraj<br/>
     Work-
+    * Frontend iterated for products marketplace and comment section, with responsive design
+    * Navbar and sidenav added throughout the app for easy navigation
+    <br/>
+    Pull request Link - https://github.com/ALPHAVIO/Krishi-Kalyan/pull/21
+    <br/>
+
+1.  Name- Yuvraj<br/>
+    Work-
+    * Frontend iterated for the homepage with custom SCSS / CSS
+    * Unnecessary routes removed to simplify the UI
+    <br/>
+    Pull request Link - https://github.com/ALPHAVIO/Krishi-Kalyan/pull/18
+    <br/>
+
+1.  Name- Yuvraj<br/>
+    Work-
     * Bug fix to link the product and comments schema.
     * Add authentication before commenting.
     <br/>
