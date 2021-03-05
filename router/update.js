@@ -18,7 +18,7 @@ router.post('/update', auth, async (req, res) => {
             req.user[update] = req.body[update]
         })
         await req.user.save()
-        res.render('kishan')
+        res.redirect('/home')
     } catch (e) {
         console.log(e)
         res.render('update')
