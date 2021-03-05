@@ -26,7 +26,7 @@
                     </div>
                 <% }) %>
             </div>
-            <form id="commentForm">
+            <form id="commentForm" method="POST" >
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Post a comment">
                     <div class="input-group-append">
@@ -36,9 +36,9 @@
             </form>
         </div>
         <%- include('partials/scripts'); -%>
-        <script>
+    <script>
             $('#submit').on('click', (e) => {
-                e.preventDefault()
+              //  e.preventDefault()
                 $.ajax({
                     url: window.location.pathname,
                     method: 'POST',

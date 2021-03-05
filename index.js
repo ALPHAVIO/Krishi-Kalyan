@@ -30,6 +30,9 @@ app.use(updateRouter)
 app.use(productsRouter)
 app.use(commentRouter)
 app.use(express.static(__dirname + '/public'));
+app.get('*',(req,res)=>{
+    res.send('404')
+})
 app.listen('3000', () => {
     console.log('Server running at port 3000')
 })
