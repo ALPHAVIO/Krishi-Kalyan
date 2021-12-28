@@ -33,7 +33,7 @@
     "middleware": "file:middleware",
     "model": "file:model",
     "mongoose": "^5.12.1",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.1",
     "public": "file:public",
     "router": "file:router",
     "validator": "^13.5.2",
